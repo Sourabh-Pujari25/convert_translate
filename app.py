@@ -52,7 +52,7 @@ def main():
                 if 'extracted_text' in st.session_state:
                     st.text_area("Extracted Text", st.session_state.extracted_text, height=100)
                 else:
-                    st.text_area("Extracted Text", "", height=100)
+                    st.text_area("Extracted Text", "", height=100 key = "sr.text_)
                 with st.expander("Extract to get Text Coordinats"):
                     word_list=[]
                     confidence_list=[]
@@ -88,7 +88,7 @@ def main():
                     st.session_state.translated_text_list_session=translated_list_text
                     
                 st.subheader("Step 3: Translated Text")
-                st.text_area("Extracted Text", st.session_state.translated_text_list_session, height=100)
+                st.text_area("Extracted Text", st.session_state.translated_text_list_session, height=100,key = asd)
             mask_image_but=st.button("Mask Image",type="primary",use_container_width=True)
             with st.container(border=True):
                 st.subheader("Step 4: Masked Image")
