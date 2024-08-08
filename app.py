@@ -1,12 +1,14 @@
 from PIL import Image,ImageDraw,ImageFont
 import pytesseract
-# from pytesseract import pytesseract
+from pytesseract.pytesseract import tesseract_cmd
 import enum
 import os
 import streamlit as st
 from googletrans import Translator
 import pandas as pd
 import json
+
+
 
 pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'  # Replace with your tesseract executable path if different
 
