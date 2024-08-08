@@ -37,7 +37,7 @@ def main():
                     if st.button("Extract Words"):
                         text = extract_text(image_path,lang='eng')
                         st.session_state.text_coordinates=extract_text_with_coordinates(image_path,'eng')
-                        st.write(st.session_state.text_coordinates)
+                        # st.write(st.session_state.text_coordinates)
                         df_aaa = pd.DataFrame(st.session_state.text_coordinates)
                         filtered_df = df_aaa[df_aaa['text'].str.len() > 0]
                         st.session_state.text_coordinates = filtered_df.to_json(orient='records', indent=4)
