@@ -8,7 +8,8 @@ from googletrans import Translator
 import pandas as pd
 import json
 
-pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'  # Replace with your tesseract executable path if different
+
 
 #/usr/bin/tesseract
 st.set_page_config(layout='wide')
