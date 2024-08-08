@@ -52,7 +52,7 @@ def main():
                 if 'extracted_text' in st.session_state:
                     st.text_area("Extracted Text", st.session_state.extracted_text, height=100)
                 else:
-                    st.text_area("Extracted Text", "", height=100 key = "sr.text_)
+                    st.text_area("Extracted Text", "", height=100 key = "sr.text_")
                 with st.expander("Extract to get Text Coordinats"):
                     word_list=[]
                     confidence_list=[]
