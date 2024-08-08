@@ -8,7 +8,7 @@ from googletrans import Translator
 import pandas as pd
 import json
 
-pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 #/usr/bin/tesseract
 st.set_page_config(layout='wide')
