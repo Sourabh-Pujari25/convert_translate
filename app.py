@@ -1,6 +1,6 @@
 from PIL import Image,ImageDraw,ImageFont
 import pytesseract
-from pytesseract import pytesseract
+# from pytesseract import pytesseract
 import enum
 import os
 import streamlit as st
