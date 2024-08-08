@@ -91,29 +91,31 @@ def main():
                 st.text_area("Extracted Text", st.session_state.translated_text_list_session, height=100,key = "asd")
             mask_image_but=st.button("Mask Image",type="primary",use_container_width=True)
             with st.container(border=True):
-                st.subheader("Step 4: Masked Image")
-                output_path=f'{OUTPUT_FOLDER}/{uploaded_image.name}'
-                if mask_image_but:
-                    image = Image.open(image_path)
-                    draw = ImageDraw.Draw(image)
-                    font_path="Lohit-Devanagari.ttf"
-                    # Use the default PIL font
-                    font = ImageFont.truetype(font_path,50)
+                try:
+                    st.subheader("Step 4: Masked Image")
+                    output_path=f'{OUTPUT_FOLDER}/{uploaded_image.name}'
+                    if mask_image_but:
+                        image = Image.open(image_path)
+                        draw = ImageDraw.Draw(image)
+                        font_path="Lohit-Devanagari.ttf"
+                        # Use the default PIL font
+                        font = ImageFont.truetype(font_path,50)
 
-                    # draw_rectangles(image_path,st.session_state.text_coordinates,output_path)
-                    st.image(output_path, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-                    # Replace each sentence with the translated text
-                    for i, original_sentence in enumerate(st.session_state.extracted_text):
-                        print(st.session_state.translated_text_list_session[i]+"---")
-                        bounding_box = get_bounding_box(original_sentence, st.session_state.text_coordinates)
-                        if bounding_box:
-                            draw.rectangle(bounding_box, fill="white")  # Fill the bounding box with white color to cover the old text
-                            draw.text((bounding_box[0], bounding_box[1]), st.session_state.translated_text_list_session[i], font=font, fill="black")  # Draw the new text
+                        # draw_rectangles(image_path,st.session_state.text_coordinates,output_path)
+                        st.image(output_path, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+                        # Replace each sentence with the translated text
+                        for i, original_sentence in enumerate(st.session_state.extracted_text):
+                            print(st.session_state.translated_text_list_session[i]+"---")
+                            bounding_box = get_bounding_box(original_sentence, st.session_state.text_coordinates)
+                            if bounding_box:
+                                draw.rectangle(bounding_box, fill="white")  # Fill the bounding box with white color to cover the old text
+                                draw.text((bounding_box[0], bounding_box[1]), st.session_state.translated_text_list_session[i], font=font, fill="black")  # Draw the new text
 
-                    # Save the edited image
-                    output_path = f"images/output_boxes/{uploaded_image.name}"
-                    image.save(output_path)
-                    
+                        # Save the edited image
+                        output_path = f"images/output_boxes/{uploaded_image.name}"
+                        image.save(output_path)
+                except AttributeError as e:
+                    print(e)
 
 
 def draw_rectangles(image_path: str, text_data: list, output_path: str):
