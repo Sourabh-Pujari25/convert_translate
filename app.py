@@ -88,7 +88,7 @@ def main():
                     st.session_state.translated_text_list_session=translated_list_text
                     
                 st.subheader("Step 3: Translated Text")
-                st.text_area("Extracted Text", st.session_state.translated_text_list_session, height=100,key = asd)
+                st.text_area("Extracted Text", st.session_state.translated_text_list_session, height=100,key = "asd")
             mask_image_but=st.button("Mask Image",type="primary",use_container_width=True)
             with st.container(border=True):
                 st.subheader("Step 4: Masked Image")
